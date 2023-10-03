@@ -1,6 +1,6 @@
 .maindashboard {
   display: flex;
-  /* flex-wrap: wrap; */
+  /* / flex-wrap: wrap; / */
 }
 
 .dashboardtext {
@@ -12,7 +12,7 @@
   top: 0;
   z-index: 1;
   padding-top: 11px;
-  /* padding-left: 1rem; */
+  /* / padding-left: 1rem; / */
 }
 
 .dashwithfav{
@@ -29,9 +29,9 @@
 
 .fa-solid{
   display: none;
-  /* padding-top: 0px; */
+  /* / padding-top: 0px; / */
   font-size: 20px;
-  /* padding-top: 0px; */
+  /* / padding-top: 0px; / */
 }
 
 .navbarbox {
@@ -42,16 +42,16 @@
 
 .dashbox {
   padding-left: 1px;
-  width: 75vw;
+  width: 96vw;
   height: 100vh;
   position: absolute;
-  left: 25%;
+  left: 4%;
 }
 
 .userstatuscontainer {
   display: flex;
   flex-wrap: wrap;
-  /* gap: 1rem; */
+  /* / gap: 1rem; / */
   justify-content: space-around;
   margin-top: 2%;
 }
@@ -72,14 +72,14 @@
   width: 80px;
   height: 80px;
   border-radius: 100px;
-  /* margin: 7%; */
+  /* / margin: 7%; / */
   opacity: 0.2;
 }
 .userstatusboxcontant {
   margin: 0;
 }
 .userstatusboxcontant span {
-  /* color: rgb(49, 70, 177); */
+  /* / color: rgb(49, 70, 177); / */
   color: red;
   font-size: 18px;
   font-weight: 700;
@@ -101,7 +101,7 @@
 }
 
 .E-PAPER-MODULE-text {
-  /* color: rgb(49, 70, 177); */
+  /* / color: rgb(49, 70, 177); / */
   color: red;
   margin: 5%;
   font-weight: 700;
@@ -113,9 +113,9 @@
   height: 40vh;
   border-radius: 15px;
   box-shadow: 1px 1px 10px 1px rgb(212, 204, 204);
-  /* background-color: rgb(145, 143, 143); */
-  /* opacity: 0.9; */
-  /* z-index: 3; */
+  /* / background-color: rgb(145, 143, 143); / */
+  /* / opacity: 0.9; / */
+  /* / z-index: 3; / */
 }
 
 .userstatusbox54 {
@@ -176,7 +176,7 @@ h3 {
   .navbarbox{
     position: absolute;
     width: 90vw;
-    /* min-width: 250px; */
+    /* / min-width: 250px; / */
     height: 100%;
     left: -250px;
     transition: left ease-in-out 0.5s;

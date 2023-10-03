@@ -4,6 +4,7 @@ import { Viewer, Worker, SpecialZoomLevel } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   CircularProgress,
@@ -16,6 +17,7 @@ import {
 const EpaperPreview = () => {
   const location = useLocation();
   // console.log(location);
+  const navigate = useNavigate();
   const data = location.state?.pdf;
 
   const [viewPdf, setViewPdf] = useState(null);

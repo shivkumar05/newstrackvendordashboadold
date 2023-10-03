@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../CSS/ViewNews.scss";
 import Navbar from "./Navbar";
+import '../CSS/Navbar.css'
 import { HiOutlineArrowSmallLeft } from "react-icons/hi2";
 import { useLocation, useNavigate } from "react-router-dom";
 
