@@ -88,23 +88,24 @@ const CreateAd = () => {
 
   const navigate = useNavigate();
 
-  const [style, setStyle] = useState("navbarbox");
+ 
+  const [style, setStyle] = useState("main-menu");
 
   const changeStyle = () => {
     setStyle((prev) => {
-      if (prev === 'navbarbox') {
-        setStyle('navbarbox2')
-      } else setStyle('navbarbox')
+      if (prev === 'main-menu') {
+        setStyle('main-menu-1')
+      } else setStyle('main-menu')
     });
-  }
+  };
 
 
 
   return (
     <div className="maindashboard">
-      <div className={style}>
-        <Navbar />
-      </div>
+      <nav className={style}>
+          <Navbar />
+        </nav>
       <div className="dashbox position-relative ">
         <div className="dashwithfav">
 

@@ -13,6 +13,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import '../CSS/Navbar.css'
 import { useLocation, useNavigate } from "react-router-dom";
 import Multiselect from "multiselect-react-dropdown";
 
@@ -136,13 +137,13 @@ const Addnewsarticle = () => {
   //   getCategories();
   // }, []);
 
-  const [style, setStyle] = useState("navbarbox");
+  const [style, setStyle] = useState("main-menu");
 
   const changeStyle = () => {
     setStyle((prev) => {
-      if (prev === "navbarbox") {
-        setStyle("navbarbox2");
-      } else setStyle("navbarbox");
+      if (prev === 'main-menu') {
+        setStyle('main-menu-1')
+      } else setStyle('main-menu')
     });
   };
 
@@ -186,9 +187,9 @@ const Addnewsarticle = () => {
 
   return (
     <>
-      <div className={style}>
+      <nav className={style}>
         <Navbar />
-      </div>
+      </nav>
       <div className="parentContainer">
         <h1 className="bg-red">
           <div className="dashwithfav"  onClick={() => navigate(-1)}>

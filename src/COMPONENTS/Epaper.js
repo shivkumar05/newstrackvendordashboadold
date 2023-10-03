@@ -86,13 +86,13 @@ const Epaper = () => {
   const [singlePdf, setSinglePdf] = useState("Upload PDF");
   const [multiPdf, setMultiPdf] = useState("Upload PDF");
 
-  const [style, setStyle] = useState("navbarbox");
+  const [style, setStyle] = useState("main-menu");
 
   const changeStyle = () => {
     setStyle((prev) => {
-      if (prev === 'navbarbox') {
-        setStyle('navbarbox2')
-      } else setStyle('navbarbox')
+      if (prev === 'main-menu') {
+        setStyle('main-menu-1')
+      } else setStyle('main-menu')
     });
   };
 
@@ -101,9 +101,9 @@ const Epaper = () => {
     <>
       <div className="Epapermaincontainer">
         <div className="epaperbox1">
-          <div className={style}>
+          <nav className={style}>
             <Navbar />
-          </div>
+          </nav>
         </div>
 
         <div className="epaperbox2">

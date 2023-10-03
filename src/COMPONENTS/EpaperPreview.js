@@ -25,6 +25,56 @@ const EpaperPreview = () => {
   const [myHeight, setMyHeight] = useState(0);
   const zoom = useRef(0);
   const [button, setButton] = useState(false);
+// 
+
+function formatDate(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+
+  return `${day}-${month}-${year}`;
+}
+
+const today = new Date();
+const formattedDate = formatDate(today);
+
+
+const UploadPdf = async () => {
+  var formData = new FormData();
+  formData.append("pdf", data);
+  formData.append("category", 'News_today_first');
+  formData.append("city", 'city');
+  formData.append("date", formattedDate);
+  formData.append("image", image);
+  formData.append("pdf_name", data.name);
+  try {
+    const response = await axios.post(
+      `http://174.138.101.222:8080/64b666b58baee257c737615e/Epaper`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    let resData = response;
+
+    console.log(resData);
+    alert(response.data.message)
+    navigate("/dashboard");
+
+  } catch (error) {
+    console.log(error);
+    alert("Error Occured");
+  }
+};
+
+
+
+
+
+
+
 
   const extractFontFamilyName = (fontName) => {
     if (fontName == "Wingdings-Regular") {
@@ -320,6 +370,25 @@ const EpaperPreview = () => {
             <img
               src={`http://174.138.101.222:5000${extractedData.image_url}`}
             />
+
+
+<Button
+              sx={{
+                marginTop: "10px",
+                width: "150px",
+                position: "relative",
+                left: "50%",
+                transform: "translateX(-50%)",
+              }}
+              variant="contained"
+              onClick={UploadPdf}
+            >
+              Upload to Epaper
+            </Button>
+
+
+
+
             <Button
               sx={{
                 marginTop: "10px",
@@ -333,6 +402,8 @@ const EpaperPreview = () => {
             >
               Send to Draft
             </Button>
+
+
           </>
         ) : (
           <CircularProgress className="circularProgress" color="inherit" />

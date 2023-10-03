@@ -5,14 +5,13 @@ import Navbar from "./Navbar";
 
 const Maindashboard = () => {
 
-
-  const [style, setStyle] = useState("navbarbox");
+  const [style, setStyle] = useState("main-menu");
 
   const changeStyle = () => {
     setStyle((prev) => {
-      if (prev === 'navbarbox') {
-        setStyle('navbarbox2')
-      } else setStyle('navbarbox')
+      if (prev === 'main-menu') {
+        setStyle('main-menu-1')
+      } else setStyle('main-menu')
     });
   };
 
@@ -20,9 +19,9 @@ const Maindashboard = () => {
   return (
     <>
       <div className="maindashboard">
-        <div className={style}>
+        <nav className={style}>
           <Navbar />
-        </div>
+        </nav>
         <div className="dashbox">
 
             <div className="dashwithfav">

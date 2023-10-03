@@ -6,26 +6,34 @@
   z-index: 1;
 }
 .newslogo {
-  width: 50%;
-  height: 60px;
+  /* width: 50%;
+  height: 60px; */
   position: relative;
-  top: 15px;
-  left: 30px;
+  /* top: 15px;
+  left: 30px; */
+
+  width: 142%;
+  height: 115px;
+  margin-bottom: 7px;
+  /* position: unset; */
+  /* position: absolute; */
+  left: 10px;
 }
-.dashboard {
+
+
+/* .dashboard {
   position: relative;
   top: 45px;
   left: 30px;
   color: white;
   /* text-decoration: none; */
-}
 /* .dashboard:hover {
   text-decoration: none;
 } */
 .dropdowns {
-  position: relative;
+  /* position: relative;
   top: 50px;
-  left: 30px;
+  left: 30px; */
   color: white;
 }
 .dropdown-menu {
@@ -115,4 +123,113 @@ label {
   .navbarcontainer{
     width: 87%;
   }
+}
+
+
+
+
+
+
+
+
+
+nav {
+  user-select:none;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  -o-user-select:none;
+}
+
+nav ul{
+  padding-left: 0px;
+}
+
+nav > ul,
+nav > ul > li {
+  outline: 0;
+}
+
+nav > ul > li > a {
+ text-decoration: none;
+}
+
+
+
+.main-menu {
+  position:fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 60px;
+  overflow:hidden;
+  background:#343a40;
+  transition: width .05s linear;
+  -webkit-transition: width .05s linear;
+  z-index: 10;
+  padding-top: 10px;
+}
+
+.main-menu-1{
+  position:fixed;
+  top: 0;
+  left: -60px;
+  height: 100%;
+  width: 60px;
+  overflow:hidden;
+  background:#343a40;
+  transition: width .05s linear;
+  -webkit-transition: width .05s linear;
+  z-index: 10;
+  padding-top: 10px;
+
+}
+
+.main-menu:hover {
+  width: 320px;
+  overflow:visible;
+}
+
+.main-menu > ul > li {
+  position: relative;
+  display: block;
+  width: 180px;
+}
+
+.main-menu > ul > li > a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color:white;
+  font-size: 1rem;
+  transition:all .1s linear;
+  -webkit-transition:all .1s linear;
+  padding: 10px 0;
+}
+
+.nav-icon {
+  width: 60px;
+  height: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav-text {
+  width: 120px;
+  height: 40px;
+  font-family: "Mulish", sans-serif;
+}
+
+
+.logout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.main-menu li:hover > a, .main-menu li.active > a, .main-menu li > a:focus,.main-menu li:hover >.nav-text {
+  text-decoration: none;
+  color:gray;
+  /* background-color: rgb(29, 79, 215, 0.7); */
 }
