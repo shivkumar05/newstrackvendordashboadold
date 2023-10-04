@@ -80,8 +80,8 @@ const EditArticle = () => {
       if (values.hasOwnProperty(key)) {
         if (key === "tags") {
           formdata.append(key, JSON.stringify(selectedTags));
-        }else
-        formdata.append(key, values[key]);
+        } else
+          formdata.append(key, values[key]);
       }
     }
     console.log(formdata);
@@ -110,31 +110,39 @@ const EditArticle = () => {
 
 
 
-  
-/////////////////////////////////////////////////////////// get api Categories start //////////////////////////////////////////////////////////////////////////////
 
-const [categories, setCategory] = useState([]);
-const getCategories = async () => {
-  try {
-    const response = await axios.get(
-      "http://174.138.101.222:8080/getmastercategories"
-    );
-    // console.log(response.data.data, "categories");
-    setCategory(response.data.data);
-  } catch (error) {
-    console.log(error);
-  }
-};
+  /////////////////////////////////////////////////////////// get api Categories start //////////////////////////////////////////////////////////////////////////////
 
-useEffect(() => {
-  getCategories();
-}, []);
+  const [categories, setCategory] = useState([]);
+  const getCategories = async () => {
+    try {
+      const response = await axios.get(
+        "http://174.138.101.222:8080/getmastercategories"
+      );
+      // console.log(response.data.data, "categories");
+      setCategory(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-/////////////////////////////////////////////////////////// get api Categories end //////////////////////////////////////////////////////////////////////////////
+  useEffect(() => {
+    getCategories();
+  }, []);
 
-
+  /////////////////////////////////////////////////////////// get api Categories end //////////////////////////////////////////////////////////////////////////////
 
 
+
+  const [style, setStyle] = useState("main-menu");
+
+  const changeStyle = () => {
+    setStyle((prev) => {
+      if (prev === 'main-menu') {
+        setStyle('main-menu-1')
+      } else setStyle('main-menu')
+    });
+  };
 
 
   /////////////////////////////////////////////////////////////////////////////// Tag get api start///////////////////////////////////////////////////////////////////
@@ -176,13 +184,18 @@ useEffect(() => {
 
   return (
     <>
-      <Navbar />
+      <nav className={style}>
+          <Navbar />
+        </nav>
       <div className="parentContainer">
         <h1 className="bg-red">
           <span onClick={() => navigate(-1)} className="pointer">
-            <HiOutlineArrowSmallLeft className="rightShift"/>
+            <HiOutlineArrowSmallLeft className="rightShift" />
           </span>
           <span>Edit Approved / Published</span>
+          <div className="onclick" onClick={changeStyle}>
+            <i class="fa-solid fa-bars"></i>
+          </div>
         </h1>
 
         <FormControl className="FormControl">
@@ -354,15 +367,15 @@ useEffect(() => {
 
 
         <FormControl className="FormControl" method="post">
-           <InputLabel
+          <InputLabel
             style={{ fontFamily: "Rooboto" }}
             id="demo-simple-select-helper-label"
           >
-          
-          </InputLabel> 
-         
 
-         
+          </InputLabel>
+
+
+
           <Multiselect
             isObject={false}
             onSelect={(selectedList) => setSelectedTags(selectedList)}
@@ -371,12 +384,12 @@ useEffect(() => {
             showCheckbox
             value={selectedTags}
 
-        
 
 
 
-            
-            
+
+
+
           />
         </FormControl>
 
