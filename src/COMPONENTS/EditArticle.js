@@ -105,6 +105,15 @@ const EditArticle = () => {
   ///////////////////////////////// To send axios request ///////////////////////////////////////
 
 
+  const [style, setStyle] = useState("main-menu");
+
+  const changeStyle = () => {
+    setStyle((prev) => {
+      if (prev === 'main-menu') {
+        setStyle('main-menu-1')
+      } else setStyle('main-menu')
+    });
+  };
 
 
 
@@ -176,7 +185,9 @@ useEffect(() => {
 
   return (
     <>
-      <Navbar />
+       <nav className={style}>
+        <Navbar />
+      </nav>
       <div className="parentContainer">
         <h1 className="bg-red">
           <span onClick={() => navigate(-1)} className="pointer">
