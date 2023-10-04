@@ -34,8 +34,8 @@ const Navbar = () => {
     fetchData();
   }, []);
 
-  
-  
+
+
   return (
     <>
       {/* <div className="navbarcontainer bg-dark">
@@ -69,7 +69,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div> */}
-        {/* <div className="dropdown dropdowns">
+      {/* <div className="dropdown dropdowns">
           <Link to={"/Profile"}>
             <p style={{fontFamily:'Rooboto'}} className="epaper">UPDATE PROFILE</p>
           </Link>
@@ -116,7 +116,7 @@ const Navbar = () => {
             <Link to={"/create-ad"} style={{fontFamily:'Rooboto'}}className="dropdown-item">
               CREATE AN AD
             </Link> */}
-            {/* <a className="dropdown-item" href="#">
+      {/* <a className="dropdown-item" href="#">
               AD LIST
             </a>
             <a className="dropdown-item" href="#">
@@ -128,10 +128,10 @@ const Navbar = () => {
             <a className="dropdown-item" href="#">
               AD SETTING TOPICS
             </a> */}
-          {/* </div>
+      {/* </div>
         </div> */}
 
-        {/* <div className="dropdown dropdowns">
+      {/* <div className="dropdown dropdowns">
           <p
             className=" dropdown-toggle"
             type="button"
@@ -149,7 +149,7 @@ const Navbar = () => {
           </div>
         </div> */}
 
-        {/* <div className="dropdown dropdowns">
+      {/* <div className="dropdown dropdowns">
           <Link to={"/TemplateSelection"}>
             <p style={{fontFamily:'Rooboto'}} className="epaper">TEMPLATE SELECTION</p>
           </Link>
@@ -157,27 +157,23 @@ const Navbar = () => {
         <Link onClick={logout} to={"/"}>
           <p style={{fontFamily:'Rooboto'}} className="dashboard">LOGOUT</p>
         </Link>
-      </div> */} 
+      </div> */}
 
 
-<ul>
-        
-      
-        
-       
+      <ul>
         <li>
-        {agencyDetails && (
-          <img
-            src={`http://174.138.101.222:8080${agencyDetails.logo_small}`}
-            className="newslogo px-2"
+          {agencyDetails && (
+            <img
+              src={`http://174.138.101.222:8080${agencyDetails.logo_small}`}
+              className="newslogo px-2"
 
-          />
-        )} 
+            />
+          )}
           <a href="#">
             <i class="fa fa-home nav-icon"></i>
             <span class="nav-text"><Link to={"/dashboard"}>
-          <p className="dashboard" style={{marginTop:"2px",color:"white"}}>MAIN DASHBOARD</p>
-        </Link></span>
+              <p className="dashboard" style={{ marginTop: "2px", color: "white" }}>MAIN DASHBOARD</p>
+            </Link></span>
           </a>
         </li>
 
@@ -185,8 +181,8 @@ const Navbar = () => {
           <a href="#">
             <i class="fa fa-image nav-icon"></i>
             <span class="nav-text"><Link to={"/Profile"}>
-            <p className="epaper" style={{marginTop:"2px"}}>UPDATE PROFILE</p>
-          </Link></span>
+              <p className="epaper" style={{ marginTop: "2px" }}>UPDATE PROFILE</p>
+            </Link></span>
           </a>
         </li>
 
@@ -194,8 +190,8 @@ const Navbar = () => {
           <a href="#">
             <i class="fa fa-pen nav-icon"></i>
             <span class="nav-text"><Link to={"/epaper"}>
-            <p className="epaper" style={{marginTop:"2px"}}>E-PAPER</p>
-          </Link></span>
+              <p className="epaper" style={{ marginTop: "2px" }}>E-PAPER</p>
+            </Link></span>
           </a>
         </li>
 
@@ -203,27 +199,27 @@ const Navbar = () => {
           <a href="#">
             <i class="fa fa-envelope nav-icon"></i>
             <span class="nav-text">
-            <div className="dropdown dropdowns">
-          <p
-            className=" dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            style={{marginTop:"2px"}}
-          >
-            POST NEWS
-          </p>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <Link to={"/news-approval"} className="dropdown-item">
-              APPROVE NEWS
-            </Link>
-            <Link to={"/addNewsArticle"} className="dropdown-item">
-              ADD NEWS ARTICLE
-            </Link>
-          </div>
-        </div>
+              <div className="dropdown dropdowns">
+                <p
+                  className=" dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  style={{ marginTop: "2px" }}
+                >
+                  POST NEWS
+                </p>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <Link to={"/news-approval"} className="dropdown-item">
+                    APPROVE NEWS
+                  </Link>
+                  <Link to={"/addNewsArticle"} className="dropdown-item">
+                    ADD NEWS ARTICLE
+                  </Link>
+                </div>
+              </div>
 
             </span>
           </a>
@@ -233,35 +229,35 @@ const Navbar = () => {
           <a href="#">
             <i class="fa fa-bell nav-icon"></i>
             <span class="nav-text"><div className="dropdown dropdowns">
-          <p
-            className=" dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            style={{marginTop:"2px"}}
-          >
-            AD MANAGEMENT
-          </p>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <Link to={"/create-ad"} className="dropdown-item">
-              CREATE AN AD
-            </Link>
-            <a className="dropdown-item" href="#">
-              AD LIST
-            </a>
-            <a className="dropdown-item" href="#">
-              AD SETTING
-            </a>
-            <a className="dropdown-item" href="#">
-              AD MANAGEMENT
-            </a>
-            <a className="dropdown-item" href="#">
-              AD SETTING TOPICS
-            </a>
-          </div>
-        </div></span>
+              <p
+                className=" dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                style={{ marginTop: "2px" }}
+              >
+                AD MANAGEMENT
+              </p>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <Link to={"/create-ad"} className="dropdown-item">
+                  CREATE AN AD
+                </Link>
+                <a className="dropdown-item" href="#">
+                  AD LIST
+                </a>
+                <a className="dropdown-item" href="#">
+                  AD SETTING
+                </a>
+                <a className="dropdown-item" href="#">
+                  AD MANAGEMENT
+                </a>
+                <a className="dropdown-item" href="#">
+                  AD SETTING TOPICS
+                </a>
+              </div>
+            </div></span>
           </a>
         </li>
 
@@ -270,11 +266,23 @@ const Navbar = () => {
           <a href="#">
             <i class="fa fa-home nav-icon"></i>
             <span class="nav-text">
-            <div className="dropdown dropdowns">
-          <Link to={"/TemplateSelection"}>
-            <p className="epaper" style={{marginTop:"2px"}}>TEMPLATE SELECTION</p>
-          </Link>
-        </div>
+              <div className="dropdown dropdowns">
+                <Link to={"/TemplateSelection"}>
+                  <p className="epaper" style={{ marginTop: "2px" }}>TEMPLATE SELECTION</p>
+                </Link>
+              </div>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a onClick={logout}>
+            <i class="fa fa-home nav-icon"></i>
+            <span class="nav-text">
+              <div className="dropdown dropdowns">
+                <Link to={"/TemplateSelection"}>
+                  <p className="epaper" style={{ marginTop: "10px" }}>Logout </p>
+                </Link>
+              </div>
             </span>
           </a>
         </li>

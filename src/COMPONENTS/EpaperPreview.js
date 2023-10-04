@@ -387,10 +387,6 @@ const UploadPdf = async () => {
             >
               Upload to Epaper
             </Button>
-
-
-
-
             <Button
               sx={{
                 marginTop: "10px",
