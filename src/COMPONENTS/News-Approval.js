@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../CSS/News-Approval.scss";
+import "../CSS/ViewNews.scss";
 import Navbar from "./Navbar";
 import { HiOutlineArrowSmallLeft } from "react-icons/hi2";
 import { Button, ButtonGroup } from "react-bootstrap";

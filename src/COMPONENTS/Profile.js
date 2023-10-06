@@ -109,7 +109,7 @@ const Profile = () => {
     }
     try {
       const response = await axios.put(
-        `http://174.138.101.222:8080/${id}/update-publication`,
+        `http://174.138.101.222:8080/${id}/update_publication`,
         formdata,
         {
           Headers: {

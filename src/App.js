@@ -17,6 +17,7 @@ import TemplateSelection from "./COMPONENTS/TemplateSelection";
 import CreateAd from "./COMPONENTS/CreateAd";
 import Profile from "./COMPONENTS/Profile";
 import UpdateCategories from "./COMPONENTS/UpdateCategories";
+import Advertisementlist from "./COMPONENTS/Advertisementlist";
 
 const App = () => {
   return (
@@ -30,7 +31,6 @@ const App = () => {
         <Route path="/addNewsArticle" element={<Addnewsarticle />} />
         <Route path="/editap" element={<EditAp />} />
         <Route path="/editReject" element={<EditReject />} />
-
         <Route path="/editDraft" element={<EditDraft />} />
         <Route path="/editArticle" element={<EditArticle />} />
         <Route path="/epaper" element={<Epaper />} />
@@ -38,6 +38,7 @@ const App = () => {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/EpaperPreview" element={<EpaperPreview />} />
         <Route path="/TemplateSelection" element={<TemplateSelection />} />
+        <Route path="/Advertisementlist" element={<Advertisementlist />} />
       </Routes>
     </BrowserRouter>
   );

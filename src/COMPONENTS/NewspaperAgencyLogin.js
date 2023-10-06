@@ -29,6 +29,7 @@ const NewspaperAgencyLogin = () => {
       );
       alert(response.data.msg);
       localStorage.setItem("newspaperAgencyAdminId", response.data.data._id);
+      localStorage.setItem("newspaperTemplate", response.data.data.templates);
       localStorage.setItem(
         "newspaperAgencyAdminToken",
         response.data.data.token
@@ -38,7 +39,8 @@ const NewspaperAgencyLogin = () => {
       setEmail("");
       setPassword("");
     } catch (error) {
-      alert(JSON.parse(error.request.response).msg);
+      console.log(error.response.data.message)
+      alert(error.response.data.message);
     }
   };
 

@@ -32,27 +32,55 @@ const CreateAd = () => {
   const [values, setValues] = useState(initialValue);
   // console.log(values);
 
+  // const handleInputChange = (e) => {
+  //   const { name, value, files } = e.target;
+  //   // console.log(e.target)
+  //   // console.log(name, value);
+  //   if (name === "image") {
+  //     setValues((prev) => {
+  //       return { ...prev, "image": e.target.files[0] };
+  //     });
+  //   } else {
+  //     setValues((prev) => {
+  //       return { ...prev, [name]: value };
+  //     });
+  //   }
+
+  // };
+  const [imageError, setImageError] = useState("");
   const handleInputChange = (e) => {
     const { name, value, files } = e.target;
-    // console.log(e.target)
-    // console.log(name, value);
+
     if (name === "image") {
-      setValues((prev) => {
-        return { ...prev, "image": e.target.files[0] };
-      });
+      const file = e.target.files[0];
+      if (file.size > 1048576 && file.size <= 5242880) {
+        // Image size is more than 1MB and less than or equal to 5MB
+        setImageError("");
+        setValues((prev) => {
+          return { ...prev, [name]: file };
+        });
+      } else if (file.size <= 1048576) {
+        setImageError("Image size should be more than 1 MB");
+      } else if (file.size > 5242880) {
+        setImageError("Image size should be less than 5MB");
+      }
     } else {
       setValues((prev) => {
         return { ...prev, [name]: value };
       });
     }
-
   };
+
   console.log(values);
 
   const id = localStorage?.getItem("newspaperAgencyAdminId");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (imageError) {
+      alert(imageError);
+      return;
+    }
     const formdata = new FormData();
     for (let key in values) {
       formdata.append(key, values[key]);
@@ -88,7 +116,7 @@ const CreateAd = () => {
 
   const navigate = useNavigate();
 
- 
+
   const [style, setStyle] = useState("main-menu");
 
   const changeStyle = () => {
@@ -104,12 +132,12 @@ const CreateAd = () => {
   return (
     <div className="maindashboard">
       <nav className={style}>
-          <Navbar />
-        </nav>
+        <Navbar />
+      </nav>
       <div className="dashbox position-relative ">
         <div className="dashwithfav">
 
-          <span className="my-auto" style={{ fontSize: '1.3rem', fontWeight: '400',fontFamily:'Rooboto' }} onClick={() => navigate(-1)} >
+          <span className="my-auto" style={{ fontSize: '1.3rem', fontWeight: '400', fontFamily: 'Rooboto' }} onClick={() => navigate(-1)} >
             <HiOutlineArrowSmallLeft className="rightShift" style={{ marginRight: "16px;" }} />
             Create Advertisement </span>
 
@@ -124,36 +152,36 @@ const CreateAd = () => {
         </h4>
         <br />
         <FormControl sx={{ width: "95%", position: 'relative', left: '50%', transform: 'translateX(-50%)' }} className=" mb-4">
-          <InputLabel style={{ fontFamily: "Rooboto"}}>Page Name</InputLabel>
+          <InputLabel style={{ fontFamily: "Rooboto" }}>Page Name</InputLabel>
           <Select
             label="Page Name"
             name="page_name"
             value={values.page_name}
             onChange={handleInputChange}
           >
-            <MenuItem   style={{ fontFamily: "Rooboto"}}value={"Home_Page"}>Home Page</MenuItem>
-            <MenuItem  style={{ fontFamily: "Rooboto"}}value={"Categories_Page"}>Categories Page</MenuItem>
-            <MenuItem style={{ fontFamily: "Rooboto"}} value={"Detailed_News_Page"}>Detailed News Page</MenuItem>
+            <MenuItem style={{ fontFamily: "Rooboto" }} value={"Home_Page"}>Home Page</MenuItem>
+            <MenuItem style={{ fontFamily: "Rooboto" }} value={"Categories_Page"}>Categories Page</MenuItem>
+            <MenuItem style={{ fontFamily: "Rooboto" }} value={"Detailed_News_Page"}>Detailed News Page</MenuItem>
           </Select>
         </FormControl>
         <br />
 
         <FormControl sx={{ width: "95%", position: 'relative', left: '50%', transform: 'translateX(-50%)' }} className=" mb-4">
-          <InputLabel  style={{ fontFamily: "Rooboto"}}>Page Location</InputLabel>
+          <InputLabel style={{ fontFamily: "Rooboto" }}>Page Location</InputLabel>
           <Select
             name="page_location"
             label="Page Location"
             value={values.page_location}
             onChange={handleInputChange}
           >
-            <MenuItem style={{ fontFamily: "Rooboto"}} value={"Topbar"}>Topbar</MenuItem>
-            <MenuItem style={{ fontFamily: "Rooboto"}} value={"Below_Breaking_News"}>Below Breaking News</MenuItem>
-            <MenuItem style={{ fontFamily: "Rooboto"}} value={"Footer"}>Footer</MenuItem>
+            <MenuItem style={{ fontFamily: "Rooboto" }} value={"Topbar"}>Topbar</MenuItem>
+            <MenuItem style={{ fontFamily: "Rooboto" }} value={"Below_Breaking_News"}>Below Breaking News</MenuItem>
+            <MenuItem style={{ fontFamily: "Rooboto" }} value={"Footer"}>Footer</MenuItem>
           </Select>
         </FormControl>
         <br />
         <FormControl sx={{ width: "95%", position: 'relative', left: '50%', transform: 'translateX(-50%)' }} className=" mb-4">
-          <InputLabel  style={{ fontFamily: "Rooboto"}}>Platform</InputLabel>
+          <InputLabel style={{ fontFamily: "Rooboto" }}>Platform</InputLabel>
           <Select
             label="Platform"
             name="desktop"
@@ -161,13 +189,13 @@ const CreateAd = () => {
             value={values.desktop}
             onChange={handleInputChange}
           >
-            <MenuItem style={{ fontFamily: "Rooboto"}} value={"Desktop"}>Desktop</MenuItem>
-            <MenuItem style={{ fontFamily: "Rooboto"}} value={"Mobile"}>Mobile</MenuItem>
-            <MenuItem style={{ fontFamily: "Rooboto"}} value={"Both"}>Both</MenuItem>
+            <MenuItem style={{ fontFamily: "Rooboto" }} value={"Desktop"}>Desktop</MenuItem>
+            <MenuItem style={{ fontFamily: "Rooboto" }} value={"Mobile"}>Mobile</MenuItem>
+            <MenuItem style={{ fontFamily: "Rooboto" }} value={"Both"}>Both</MenuItem>
           </Select>
         </FormControl>
         <br />
-        <h6 style={{ fontFamily: "Rooboto"}} className="ms-3 mb-2" >
+        <h6 style={{ fontFamily: "Rooboto" }} className="ms-3 mb-2" >
           Start Date:-
         </h6>{" "}
         <TextField
@@ -179,7 +207,7 @@ const CreateAd = () => {
           type="datetime-local"
         ></TextField>
         <br />
-        <h6 style={{ fontFamily: "Rooboto"}} className="ms-3 mb-2" >
+        <h6 style={{ fontFamily: "Rooboto" }} className="ms-3 mb-2" >
           End Date:-
         </h6>
         <TextField
@@ -210,6 +238,7 @@ const CreateAd = () => {
           </RadioGroup>
         </FormControl>
         {values.type_of_ad === "Image" && (
+          <>
           <TextField
             id="outlined-basic"
             variant="outlined"
@@ -221,9 +250,11 @@ const CreateAd = () => {
             name="image"
             onChange={handleInputChange}
           />
+          <p className="error-text">{imageError}</p>
+          </>
         )}
         {values.type_of_ad === "Script" && (
-          <TextField 
+          <TextField
             id="outlined-basic"
             className="mx-2 mb-4"
             multiline
@@ -251,9 +282,9 @@ const CreateAd = () => {
         <br />
         <Button
           className="mb-4"
-          style={{ backgroundColor: "red", position: 'absolute', left: '50%',bottom:'-70px', transform: 'translateX(-50%)', width: '200px', height: '45px', fontFamily: "Rooboto" }}
+          style={{ backgroundColor: "red", position: 'absolute', left: '50%', bottom: '-70px', transform: 'translateX(-50%)', width: '200px', height: '45px', fontFamily: "Rooboto" }}
           variant="contained"
-        
+
           onClick={(e) => {
             handleSubmit(e);
           }}
