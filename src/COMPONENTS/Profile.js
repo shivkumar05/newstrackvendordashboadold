@@ -101,6 +101,10 @@ const Profile = () => {
   }, []);
 
   const updateData = async () => {
+    if (imageError) {
+      alert(imageError);
+      return;
+    }
     let formdata = new FormData();
     for (const key in agencyDetails) {
       if (agencyDetails.hasOwnProperty(key)) {
@@ -124,13 +128,41 @@ const Profile = () => {
     }
   };
 
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   if (e.target.type === "file") {
+  //     setAgencyDetails({
+  //       ...agencyDetails,
+  //       [name]: e.target.files[0],
+  //     });
+  //   } else {
+  //     setAgencyDetails({
+  //       ...agencyDetails,
+  //       [name]: value,
+  //     });
+  //   }
+  // };
+  const [imageError, setImageError] = useState("");
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (e.target.type === "file") {
-      setAgencyDetails({
-        ...agencyDetails,
-        [name]: e.target.files[0],
-      });
+      const file = e.target.files[0];
+      if (file.size > 1048576 && file.size <= 5242880) {
+        // File size is more than 1MB and less than or equal to 5MB
+        setAgencyDetails({
+          ...agencyDetails,
+          [name]: file,
+        });
+      } else if (file.size <= 1048576) {
+        // File size is less than or equal to 1MB
+        setImageError("File size should be more than 1 MB");
+        // You can handle the error as needed (e.g., display a message to the user).
+      } else if (file.size > 5242880) {
+        // File size is more than 5MB
+        setImageError("File size should be less than 5MB");
+        // You can handle the error as needed (e.g., display a message to the user).
+      }
     } else {
       setAgencyDetails({
         ...agencyDetails,
@@ -139,7 +171,9 @@ const Profile = () => {
     }
   };
 
- 
+
+
+
   const [style, setStyle] = useState("main-menu");
 
   const changeStyle = () => {
@@ -154,14 +188,14 @@ const Profile = () => {
   return (
     <>
       <nav className={style}>
-          <Navbar />
-        </nav>
+        <Navbar />
+      </nav>
       <div className="parentContainer">
         <h1 className="bg-red">
           <div className="dashwithfav">
-            <span style={{fontFamily:'Rooboto'}}    onClick={() => navigate(-1)}>
-              <HiOutlineArrowSmallLeft className="rightShift"/>
-            UPDATE PROFILE</span>
+            <span style={{ fontFamily: 'Rooboto' }} onClick={() => navigate(-1)}>
+              <HiOutlineArrowSmallLeft className="rightShift" />
+              UPDATE PROFILE</span>
             <div className="onclick" onClick={changeStyle}>
               <i class="fa-solid fa-bars"></i>
             </div>
@@ -176,7 +210,7 @@ const Profile = () => {
           <div className="container-fluid">
             <div className="row  gx-2 gy-3">
               <div className="col-md-6">
-                <TextField 
+                <TextField
                   id="outlined-basic"
                   fullWidth
                   label="Publication Name"
@@ -269,34 +303,40 @@ const Profile = () => {
                 <label htmlFor="logo_small" className="form-label">
                   Logo Small
                 </label>
-                <input
-                  className="form-control"
-                  type="file"
-                  id="logo_small"
-                  name="logo_small"
-                  //   value={agencyDetails.logo_small}
-                  onChange={handleInputChange}
-                />
+                <>
+                  <input
+                    className="form-control"
+                    type="file"
+                    id="logo_small"
+                    name="logo_small"
+                    //   value={agencyDetails.logo_small}
+                    onChange={handleInputChange}
+                  />
+                  <p className="error-text">{imageError}</p>
+                </>
               </div>
               <div className="mb-3 col-md-6">
                 <label htmlFor="formFile" className="form-label">
                   Logo Large
                 </label>
-                <input
-                  className="form-control"
-                  type="file"
-                  id="formFile"
-                  name="logo_large"
-                  //   value={agencyDetails.logo_large}
-                  onChange={handleInputChange}
-                />
+                <>
+                  <input
+                    className="form-control"
+                    type="file"
+                    id="formFile"
+                    name="logo_large"
+                    //   value={agencyDetails.logo_large}
+                    onChange={handleInputChange}
+                  />
+                  <p className="error-text">{imageError}</p>
+                </>
               </div>
             </div>
           </div>
         )}
 
         <Button
-        style={{fontFamily:'Rooboto'}}
+          style={{ fontFamily: 'Rooboto' }}
           variant="contained"
           className="FormControl bg-red"
           onClick={() => {

@@ -94,6 +94,7 @@ const EditArticle = () => {
       },
     })
       .then(async (response) => {
+        console.log(response)
         alert(response.data.message);
         navigate("/news-approval");
       })

@@ -698,7 +698,7 @@ const NewsApproval = () => {
 
 
           <table className="width">
-            <thead>
+            {/* <thead>
               <tr>
                 <th style={{fontFamily:'Rooboto'}}>S.No.</th>
                 <th style={{fontFamily:'Rooboto'}}>Title</th>
@@ -706,11 +706,10 @@ const NewsApproval = () => {
                 <th style={{fontFamily:'Rooboto'}}>Approval Time</th>
                 <th style={{fontFamily:'Rooboto'}}> Publishing Time</th>
                 <th style={{fontFamily:'Rooboto'}}>Author Name</th>
-                {/* <th>News Agency</th> */}
                 <th style={{fontFamily:'Rooboto'}}>Approved By</th>
                 <th style={{fontFamily:'Rooboto'}}>Operation</th>
               </tr>
-            </thead>
+            </thead> */}
 
             {data?.data?.data?.map((item, index) => {
               return (

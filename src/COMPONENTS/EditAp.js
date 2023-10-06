@@ -79,7 +79,7 @@ const EditArticle = () => {
     for (const key in values) {
       if (values.hasOwnProperty(key)) {
         if (key === "tags") {
-          formdata.append(key, JSON.stringify(selectedTags));
+          formdata.append(key,(selectedTags));
         } else
           formdata.append(key, values[key]);
       }
